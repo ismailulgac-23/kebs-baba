@@ -1,0 +1,745 @@
+import { Link } from "react-router";
+import type { Route } from "./+types/home";
+import cn from "classnames";
+import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import Input from "~/components/Input";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "Kebab Frontend" },
+    { name: "description", content: "Welcome to React Router!" },
+  ];
+}
+
+export default function Home() {
+  return (
+    <div className="">
+      {/* topbar */}
+      <div className="container mx-auto h-[63px] flex justify-between items-center">
+        <div className="hidden md:flex flex-col items-start">
+          <p className="text-primary text-sm font-normal font-cooper">
+            BABA CENTRE, 26 rue du vieux marché aux vins{" "}
+          </p>
+          <p className="text-primary text-sm font-normal font-cooper">
+            BABA KRUT, 14 rue Munch Krutenau
+          </p>
+        </div>
+
+        <InstagramButton className="block md:hidden w-[90px]" />
+
+        <Link to="/">
+          <img
+            className="md:w-[141px] md:h-[49px] w-[97px] select-none"
+            src="/assets/images/logo.png"
+            alt="logo"
+          />
+        </Link>
+        <div className="flex items-center gap-[17px]">
+          <MerchsButton className="md:w-[107px] md:h-[34px] w-[90px]" />
+          <InstagramButton className="hidden md:block w-[107px] h-[34px]" />
+        </div>
+      </div>
+
+      {/* marquee */}
+      <Marquee />
+
+      {/* Intro Text */}
+      <IntroText />
+
+      {/* Swiper slider */}
+      <Slider />
+
+      {/* Address */}
+      <Address />
+
+      {/* Who is the fucking baba */}
+      <WhoIsTheFuckingBaba />
+
+      <Marquee text="SALADE TOMATE JAMAIS MALADE SALADE TOMATE JAMAIS MALADE SALADE TOMATE JAMAIS MALADE" />
+      <Marquee
+        text="DÖNER - MÜZİK - BİRA - DÜRÜM - LAHMACUN - HALLOUMI - MEZZES - DÖNER - MÜZİK - BİRA - DÜRÜM - LAHMACUN - HALLOUMI - MEZZES -"
+        bgColor="bg-white"
+        textColor="text-primary"
+      />
+
+      <Menu />
+
+      <Marquee
+        text="BONHEUR KEBAB - BONHEUR KEBAB - BONHEUR KEB - BONHEUR KEBAB - BONHEUR KEBAB - BONHEUR KEB -"
+        bgColor="bg-white"
+        textColor="text-primary"
+        textSize="text-[65px]"
+      />
+
+      <Comments />
+
+      <Quality />
+
+      <Truk />
+    </div>
+  );
+}
+
+const Truk = () => {
+  const trukImages = [
+    "/assets/images/truk-1.png",
+    "/assets/images/truk-2.png",
+    "/assets/images/truk-3.png",
+    "/assets/images/truk-4.png",
+  ];
+  return (
+    <div className="bg-primary rounded-tl-[48px] rounded-tr-[48px] w-full py-7 md:py-17.5 relative">
+      <div className="container mx-auto flex flex-col md:flex-row items-start gap-8">
+        <div className="max-w-300 w-full">
+          <img
+            src="/assets/images/baba-truk.png"
+            className="block md:hidden w-50 ml-auto mb-8"
+          />
+
+          <img
+            src={trukImages[0]}
+            className="mb-4 w-full h-149.25 object-cover rounded-[34px]"
+          />
+          <div className="grid grid-cols-3 gap-3.5 w-full">
+            {trukImages.slice(1).map((e) => {
+              return (
+                <img
+                  src={e}
+                  className="w-full h-45 object-cover rounded-[34px]"
+                />
+              );
+            })}
+          </div>
+        </div>
+
+        <div>
+          <img
+            src="/assets/images/baba-truk.png"
+            className="hidden md:block w-125 mb-8"
+          />
+
+          <p className="font-frankfurter text-lg text-white mb-6">
+            Tatio totas dolorectae. Nempos ant rectatemos sim eaquunt eossit,
+            nossinus moluptas simporehent aut rehendis quosae nonsequo bea
+            denihit, ut fugitis denim eaquis di occaborem dit{" "}
+          </p>
+
+          <p className="font-frankfurter text-lg text-white mb-8">
+            modicat iumendem nemporem. Itae vo lo eum veliciaTatio totas
+            dolorectae. Nempos ant rectatemos sim
+          </p>
+
+          <div className="space-y-5">
+            <Input label="Nom et prénom" />
+            <Input label="Email" />
+            <Input label="Raison" />
+            <Input label="Message" inputType="textarea" rows={7} />
+
+            <button className="font-zipper font-medium text-2xl flex items-center justify-center h-10 px-4 pt-2 ml-auto cursor-pointer bg-white rounded-full">
+              Envoyer
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <img
+        src="/assets/images/baba-fuck.png"
+        className="w-40 md:w-50 absolute -top-[5%] left-0 md:-top-[7%] md:left-[6%] -rotate-8"
+      />
+    </div>
+  );
+};
+
+const Quality = () => {
+  return (
+    <div className="container mx-auto my-20 relative">
+      <h1 className="uppercase font-zipper text-[80px] md:text-[132px] mb-12 md:mb-18.75 font-medium text-primary text-center">
+        A cheval <br className="block md:hidden" /> sur la qualité
+      </h1>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full">
+        <div className="w-full space-y-8">
+          <p className="text-xl text-primary font-frankfurter">
+            Les broches de Baba sont montées chaque matin à l’huile de coude de
+            nos chefs kebabier. On travaille avec du boeuf frais, tranché, pas
+            haché ! Comme à Instanbul
+          </p>
+
+          <p className="text-xl text-primary font-frankfurter">
+            Le poulet quant à lui est un mélange de cuisses et d’escalopes, pour
+            2x plus de kiff et 2 x mois de gras ! Nos marinades, à base de
+            yaourt et d’épices, subliment le goût de la viande, sans le masquer
+          </p>
+        </div>
+
+        <div className="w-full space-y-8">
+          <p className="text-xl text-primary font-frankfurter">
+            Notre pain crousti-moelleux sort tous les jours du four de notre
+            artisan boulanger.
+          </p>
+
+          <p className="text-xl text-primary font-frankfurter">
+            Sons secret ? Du levain naturel ! C’est pour ça qu’il se digère bien
+            et que t’as pas l’impression d’avoir avalé une enclume après avoir
+            mangé un de nos kebabs.
+          </p>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-5 w-full mt-10">
+        <img src="/assets/images/kebab-1.png" />
+        <img src="/assets/images/kebab-2.png" />
+        <img src="/assets/images/kebab-3.png" />
+        <img src="/assets/images/kebab-4.png" />
+      </div>
+
+      <img
+        src="/assets/images/bonheur-cuisine.png"
+        className="w-40 md:w-43.5 absolute -top-[8.5%] md:-top-[10%] right-[5%] rotate-20"
+      />
+
+      <img
+        src="/assets/images/grillade.png"
+        className="w-28 md:w-35 absolute -bottom-[7%] -right-[4%]"
+      />
+    </div>
+  );
+};
+
+const Comments = () => {
+  // Mock data - 12 adet yorum
+  const comments = Array.from(Array(12).keys()).map((index) => ({
+    id: index + 1,
+    pseudo: `Pseudo${index + 1}`,
+    text: "Tatio totas dolorectae. Nempos ant rectatemos sim eaquunt eossit, nossinus moluptas simporehent aut rehendis quosae nonsequo bea denihit, ut fugitis denim eaquis di occaborem dit facepro voloreptas unt laborem nihil modicat iumendem nemporem. Itae vo",
+  }));
+
+  return (
+    <div className="relative py-12">
+      <div className="container mx-auto">
+        <div className="relative">
+          <Swiper
+            modules={[Navigation]}
+            spaceBetween={20}
+            slidesPerView={1}
+            slidesPerGroup={1}
+            loop={true}
+            navigation={{
+              prevEl: ".comments-prev",
+              nextEl: ".comments-next",
+            }}
+            breakpoints={{
+              768: {
+                slidesPerView: 4,
+                slidesPerGroup: 4,
+              },
+            }}
+            className="w-full"
+          >
+            {comments.map((comment) => (
+              <SwiperSlide key={comment.id}>
+                <div className="w-full max-w-75 mx-auto border-2 border-primary h-60 rounded-[18px] px-4 flex items-center justify-center flex-col">
+                  <h3 className="mb-2 text-sm font-cooper">{comment.pseudo}</h3>
+                  <img
+                    src="/assets/images/stars.png"
+                    className="w-27.5 h-5 mb-4"
+                  />
+                  <p className="font-frankfurter text-sm text-center">
+                    {comment.text}
+                  </p>
+                  <div className="w-full mt-1">
+                    <img src="/assets/images/google.png" className="w-11.5" />
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* Navigation Buttons */}
+          <button className="comments-prev absolute top-1/2 -translate-y-1/2 left-0 md:-left-12 z-10">
+            <img
+              className="w-10 h-10"
+              src="/assets/images/arrow-left-red.png"
+              alt="Previous"
+            />
+          </button>
+          <button className="comments-next absolute top-1/2 -translate-y-1/2 right-0 md:-right-12 z-10">
+            <img
+              className="w-10 h-10"
+              src="/assets/images/arrow-right-red.png"
+              alt="Next"
+            />
+          </button>
+        </div>
+      </div>
+
+      <img
+        src="/assets/images/avis.png"
+        className="w-47.5 h-18.25 absolute top-3 left-5 z-20"
+      />
+    </div>
+  );
+};
+
+const Menu = () => {
+  const ArrowLeft = ({ className }: { className?: string }) => {
+    return (
+      <button className={className}>
+        <img src="/assets/images/arrow-left.png" className="w-10 h-10" />
+      </button>
+    );
+  };
+
+  const ArrowRight = ({ className }: { className?: string }) => {
+    return (
+      <button className={className}>
+        <img src="/assets/images/arrow-right.png" className="w-10 h-10" />
+      </button>
+    );
+  };
+
+  return (
+    <div className="bg-primary w-full h-auto py-8">
+      <img
+        src="/assets/images/la-carte.png"
+        className="w-[350px] md:w-[400px] mx-auto mb-8"
+      />
+
+      <div className="flex items-center justify-center gap-10 mb-4 md:mb-0">
+        <ArrowLeft className="hidden md:block" />
+        <img
+          src="/assets/images/menu-pc-1.png"
+          className="hidden md:block w-[90%]"
+        />
+        <img
+          src="/assets/images/menu-mobile-1.png"
+          className="block md:hidden w-full"
+        />
+        <ArrowRight className="hidden md:block" />
+      </div>
+
+      <div className="flex md:hidden items-center justify-center gap-5">
+        <ArrowLeft />
+        <ArrowRight />
+      </div>
+
+      {/* Address Section */}
+      <div className="w-full flex flex-col md:flex-row items-center justify-between">
+        <div className="opacity-70 cursor-pointer hover:opacity-100 transition-all address-item w-full py-8 px-4">
+          {/* Main Title */}
+          <h2 className="address-title mb-4">KEBS BABA KRUTENAU</h2>
+
+          {/* Opening Hours */}
+          <div className="space-y-2">
+            <p className="address-text">de 11h45 à 23h du dimanche au jeudi</p>
+            <p className="address-text">
+              et de 11h45 à 01h le vendredi et samedi
+            </p>
+          </div>
+        </div>
+
+        <div className="opacity-70 cursor-pointer hover:opacity-100 transition-all address-item w-full py-8 px-4">
+          {/* Main Title */}
+          <h2 className="address-title mb-4">KEBS BABA KRUTENAU</h2>
+
+          {/* Opening Hours */}
+          <div className="space-y-2">
+            <p className="address-text">de 11h45 à 23h du dimanche au jeudi</p>
+            <p className="address-text">
+              et de 11h45 à 01h le vendredi et samedi
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const WhoIsTheFuckingBaba = () => {
+  return (
+    <div className="container mx-auto py-12 flex flex-col md:flex-row items-center justify-center md:justify-between relative">
+      <div className="max-w-[600px] flex items-center md:items-start justify-center flex-col w-full">
+        <img
+          src="/assets/images/who-is-the-fucking-baba.png"
+          className="w-[472px] hidden mb-12 md:block"
+        />
+        <img
+          src="/assets/images/who-is-the-fucking-baba-mobile.png"
+          className="w-[342px] block md:hidden mb-12"
+        />
+
+        <p className="text-primary mb-4 text-lg font-frankfurter">
+          C’était un mardi pluvieux d’avril 2022, à quelques pas d’la Place de
+          l’homme de fer.
+        </p>
+
+        <p className="text-primary mb-4 text-lg font-frankfurter">
+          Il est apparu comme ça, avec sa grosse stache, sa casquette rouge et
+          son pantalon pattes d’eph. Certains disent qu’il viendrait d’Istanbul,
+          d’autre de Berlin. D’autres encore, qu’il a toujours été là. En
+          Alsace, on rigole zéro avec le Döner Kebab, c’est sacré !
+        </p>
+
+        <p className="text-primary mb-4 text-lg font-frankfurter">
+          C’est le rituel des dimanches midi en famille (ou en gueule de bois).
+          C’est la valeur sure, celle qui remplit bien l’bide, celle qui
+          réchauffe et qui rassemble ! 
+        </p>
+
+        <p className="text-primary mb-4 text-lg font-frankfurter">
+          Alors quand il a ouvert son premier établissement, autant dire que
+          tout le monde l’attendait au tournant. Deux ans plus tard, Baba s’est
+          imposé dans le coeur de Alsaciens, avec ses kebs maisons, frais et
+          gourmands, inspirées des voyages aventures de Baba entre l’Allemagne
+          et la Turquie. 
+        </p>
+        <p className="text-primary mb-4 text-lg font-frankfurter">
+          Mais alors qu’on pensait tout savoir sur Baba, on raconte depuis peu
+          qu’il viverait une double vie, et que le boug serait aussi un fou de
+          Disco. 
+        </p>
+        <p className="text-primary mb-4 text-lg font-frankfurter">
+          On raconte que certains soirs, dans sa deuxième maison, à la Krutenau,
+          Baba organise des soirées Disco jusqu’à l’aube, et qu’il aurait même
+          une broche à facettes… 
+        </p>
+        <p className="text-primary mb-4 text-lg font-frankfurter">
+          Mais ça, il faut le voir pour le croire.
+        </p>
+      </div>
+      <img
+        src="/assets/images/ozgur-hamza.png"
+        className="relative w-[700px]"
+      />
+
+      <img
+        src="/assets/images/sticker-baba.png"
+        className="hidden md:block w-[309px] absolute bottom-0 right-0"
+      />
+      <img
+        src="/assets/images/sticker-baba-mobile.png"
+        className="z-30 block md:hidden w-[209px] absolute bottom-0 -left-5"
+      />
+    </div>
+  );
+};
+
+const Address = () => {
+  return (
+    <div className="relative py-12 mt-12 h-auto w-full container mx-auto bg-cover bg-no-repeat bg-[url('/assets/images/address-bg.png')]">
+      <img
+        src="/assets/images/addresses-title.png"
+        alt="address title"
+        className="pb-14 w-[440px] mx-auto h-auto object-contain"
+      />
+
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-24 w-full max-w-full md:max-w-6xl mx-auto h-auto">
+        <div className="h-auto p-7 pb-12 relative w-full bg-cover md:bg-contain bg-no-repeat bg-center bg-[url('/assets/images/paper.png')]">
+          <img
+            src="/assets/images/krutenau.png"
+            className="w-full my-4 object-contain"
+          />
+          <div className="w-full h-0.5 bg-black mb-2"></div>
+          <h3 className="font-frankfurter text-2xl font-bold">Addresse</h3>
+          <div className="flex items-center justify-between w-full">
+            <div className="max-w-[200px] w-full">
+              <p className="font-frankfurter text-lg">
+                14 rue Munch Krutenau 67000 STRASBOURG
+              </p>
+            </div>
+
+            <div className="flex flex-col items-end justify-center">
+              <p className="text-lg font-frankfurter">Voir sur la carte</p>
+              <div className="flex items-center gap-2">
+                <img
+                  src="/assets/images/arrow-external-icon.png"
+                  className="w-2.5 h-2.5 object-contain"
+                />
+                <p className="underline cursor-pointer text-lg font-frankfurter">
+                  Google Map
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full h-0.5 bg-black mb-2 mt-2"></div>
+          <div className="w-full h-0.5 bg-black mb-5"></div>
+
+          <img
+            src="/assets/images/krutenau-img.png"
+            className="w-full h-auto object-contain"
+          />
+
+          <img
+            src="/assets/images/order-btn.png"
+            className="ml-auto w-[232px] h-10 mt-6"
+          />
+        </div>
+
+        <div className="h-auto p-7 pb-12 relative w-full bg-cover md:bg-contain bg-no-repeat bg-center bg-[url('/assets/images/paper.png')]">
+          <img
+            src="/assets/images/centre.png"
+            className="w-full my-4 object-contain"
+          />
+          <div className="w-full h-0.5 bg-black mb-2"></div>
+          <h3 className="font-frankfurter text-2xl font-bold">Addresse</h3>
+          <div className="flex items-center justify-between w-full">
+            <div className="max-w-[200px] w-full">
+              <p className="font-frankfurter text-lg">
+                14 rue Munch Krutenau 67000 STRASBOURG
+              </p>
+            </div>
+
+            <div className="flex flex-col items-end justify-center">
+              <p className="text-lg font-frankfurter">Voir sur la carte</p>
+              <div className="flex items-center gap-2">
+                <img
+                  src="/assets/images/arrow-external-icon.png"
+                  className="w-2.5 h-2.5 object-contain"
+                />
+                <p className="underline cursor-pointer text-lg font-frankfurter">
+                  Google Map
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full h-0.5 bg-black mb-2 mt-2"></div>
+          <div className="w-full h-0.5 bg-black mb-5"></div>
+
+          <img
+            src="/assets/images/centre-img.png"
+            className="w-full h-auto object-contain"
+          />
+
+          <img
+            src="/assets/images/order-btn.png"
+            className="ml-auto w-[232px] h-10 mt-6"
+          />
+        </div>
+      </div>
+
+      <img
+        src="/assets/images/baba.png"
+        className="z-20 absolute -bottom-10 left-0 md:bottom-[4%] md:left-[2.5%] w-[120px] md:w-[213px] object-contain"
+      />
+    </div>
+  );
+};
+
+const Slider = () => {
+  const slides = [
+    "/assets/images/slide-1.png",
+    "/assets/images/slide-2.png",
+    "/assets/images/slide-3.png",
+  ];
+
+  return (
+    <div className="relative overflow-visible z-10 container mx-auto">
+      <Swiper
+        modules={[Autoplay]}
+        spaceBetween={20}
+        slidesPerView={1}
+        slidesPerGroup={1}
+        loop={true}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
+        allowTouchMove={false}
+        breakpoints={{
+          768: {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+          },
+        }}
+        className="w-full"
+      >
+        {slides.map((slide, index) => (
+          <SwiperSlide key={index}>
+            <img
+              src={slide}
+              alt={`Slide ${index + 1}`}
+              className="w-full h-auto object-cover"
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+};
+
+const IntroText = () => {
+  return (
+    <div className="py-8 md:py-12 container mx-auto relative z-20">
+      <img
+        src="/assets/images/kebs-baba.png"
+        alt="intro text"
+        className="z-20 hidden md:block"
+      />
+
+      <img
+        src="/assets/images/kebs-baba-mobile.png"
+        alt="intro text"
+        className="z-20 block md:hidden"
+      />
+
+      <div className="hidden md:block">
+        <AnimatedLabel
+          className="absolute top-0 right-5 w-[125px] h-[161px]"
+          style={{ transform: "rotate(-12deg)", transformOrigin: "50% 75%" }}
+        >
+          <img
+            src="/assets/images/kebs-lover.png"
+            className="w-full h-full object-contain"
+          />
+        </AnimatedLabel>
+
+        <img
+          src="/assets/images/ouvert.png"
+          className="w-[152px] h-[138px] object-contain absolute top-0 left-1/3"
+        />
+
+        {/* bonheur kebabs */}
+        <img
+          src="/assets/images/bonheur-kebab.png"
+          className="w-[143px] object-contain absolute top-[6%] left-[57%]"
+        />
+        <img
+          src="/assets/images/bonheur-kebab.png"
+          className="w-[143px] object-contain absolute bottom-8 left-[20%]"
+        />
+        {/* bonheur kebabs end  */}
+
+        <AnimatedLabel className="w-[158px] object-contain absolute bottom-[6%] left-[2%]">
+          <img
+            src="/assets/images/bonheur-cuisine.png"
+            className="w-full h-full object-contain"
+          />
+        </AnimatedLabel>
+
+        <img
+          src="/assets/images/sur-place.png"
+          className="w-[220px] absolute -bottom-[6%] right-[9%]"
+        />
+      </div>
+
+      <div className="block md:hidden">
+        <AnimatedLabel
+          className="absolute top-1/2 -translate-y-1/2 left-[20%] w-[110px]"
+          style={{ transform: "rotate(-12deg)", transformOrigin: "50% 75%" }}
+        >
+          <img
+            src="/assets/images/kebs-lover.png"
+            className="w-full h-full object-contain"
+          />
+        </AnimatedLabel>
+        <img
+          src="/assets/images/ouvert.png"
+          className="absolute -bottom-12 -left-5 w-[136px] object-contain"
+        />
+        <img
+          src="/assets/images/bonheur-kebab.png"
+          className="absolute -bottom-2 right-8 w-[116px] object-contain"
+        />
+        <img
+          src="/assets/images/sur-place.png"
+          className="w-[123px] absolute top-0 right-[11%]"
+        />
+      </div>
+    </div>
+  );
+};
+
+const AnimatedLabel = ({
+  children,
+  className,
+  style,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+}) => {
+  return (
+    <motion.div
+      className={className}
+      style={style}
+      animate={{
+        rotate: [0, -1.5, 1.5, -1.5, 1.5, 0],
+        x: [0, 4, -4, 4, -4, 0],
+      }}
+      transition={{
+        duration: 3,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+const InstagramButton = ({ className }: { className?: string }) => {
+  return (
+    <img
+      className={cn("cursor-pointer select-none", className)}
+      src="/assets/images/insta-button.png"
+      alt="facebook"
+    />
+  );
+};
+
+const MerchsButton = ({ className }: { className?: string }) => {
+  return (
+    <img
+      className={cn("cursor-pointer select-none", className)}
+      src="/assets/images/merchs-button.png"
+      alt="merchs"
+    />
+  );
+};
+
+const Marquee = ({
+  text = "ÉVÈNEMENTS DISCO KEBAB de 21h à 3h30 à Kebs BABA Krutenau le vendredi 3 octobre 2025",
+  textColor = "text-white",
+  bgColor = "bg-primary",
+  textSize = "text-[32px]",
+}) => {
+  return (
+    <div
+      className={cn("pt-2 flex items-center w-full overflow-hidden", bgColor)}
+    >
+      <motion.div
+        className="flex items-center"
+        animate={{
+          x: [0, -33.333 + "%"],
+        }}
+        transition={{
+          x: {
+            repeat: Infinity,
+            repeatType: "loop",
+            duration: 10,
+            ease: "linear",
+          },
+        }}
+      >
+        {[...Array(3)].map((_, i) => (
+          <p
+            key={i}
+            className={cn(
+              "ml-2 font-bold font-zipper whitespace-nowrap p-0 leading-none shrink-0",
+              textColor,
+              textSize
+            )}
+          >
+            {text}
+          </p>
+        ))}
+      </motion.div>
+    </div>
+  );
+};
