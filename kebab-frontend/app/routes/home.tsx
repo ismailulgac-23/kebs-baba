@@ -76,14 +76,14 @@ export default function Home() {
 export const Topbar = () => {
   return (
     <div className="container mx-auto h-[63px] flex justify-between items-center">
-      <div className="hidden md:flex flex-col items-start">
+      <a href="https://maps.app.goo.gl/gDYfEgXUjfrR6xq38" target="_blank" className="hover:underline hover:decoration-primary hidden md:flex flex-col items-start">
         <p className="text-primary text-sm font-normal font-cooper">
           BABA CENTRE, 26 rue du vieux marché aux vins{" "}
         </p>
         <p className="text-primary text-sm font-normal font-cooper">
           BABA KRUT, 14 rue Munch Krutenau
         </p>
-      </div>
+      </a>
 
       <InstagramButton className="block md:hidden w-[90px]" />
 
@@ -287,7 +287,10 @@ export const Products = () => {
         >
           {Array.from(Array(12).keys()).map((index) => (
             <SwiperSlide key={index}>
-              <Link to={`/products/${index}`} className="w-full cursor-pointer select-none">
+              <Link
+                to={`/products/${index}`}
+                className="w-full cursor-pointer select-none"
+              >
                 <img
                   src="/assets/images/t-shirt.png"
                   className="w-full aspect-square rounded-2xl mb-1.5 object-cover"
@@ -1178,11 +1181,13 @@ const InstagramButton = ({ className }: { className?: string }) => {
 
 const MerchsButton = ({ className }: { className?: string }) => {
   return (
-    <img
-      className={cn("cursor-pointer select-none", className)}
-      src="/assets/images/merchs-button.png"
-      alt="merchs"
-    />
+    <Link to="/products">
+      <img
+        className={cn("cursor-pointer select-none", className)}
+        src="/assets/images/merchs-button.png"
+        alt="merchs"
+      />
+    </Link>
   );
 };
 
