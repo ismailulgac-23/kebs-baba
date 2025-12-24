@@ -3,9 +3,10 @@ import type { Route } from "./+types/home";
 import cn from "classnames";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";
+import { Autoplay, Navigation, FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/free-mode";
 import Input from "~/components/Input";
 import { Icon } from "@iconify/react";
 
@@ -87,9 +88,78 @@ export default function Home() {
       <Contact />
 
       <Gallery />
+
+      <Products />
+
+      <Footer />
     </div>
   );
 }
+
+const Footer = () => {
+  return <div></div>;
+};
+
+const Products = () => {
+  return (
+    <div className="w-full bg-primary relative py-15 mb-28.25">
+      <div className="container mx-auto">
+        <Swiper
+          modules={[FreeMode]}
+          spaceBetween={20}
+          slidesPerView={1.2}
+          freeMode={true}
+          grabCursor={true}
+          breakpoints={{
+            768: {
+              slidesPerView: 4,
+              spaceBetween: 24,
+            },
+          }}
+          className="w-full"
+        >
+          {Array.from(Array(12).keys()).map((index) => (
+            <SwiperSlide key={index}>
+              <div className="w-full cursor-pointer select-none">
+                <img
+                  src="/assets/images/t-shirt.png"
+                  className="w-full aspect-square rounded-2xl mb-1.5 object-cover"
+                />
+
+                <h1 className="text-white text-[23px] font-cooper">
+                  Tee-shirt {index + 1} - PRIX €
+                </h1>
+
+                <p className="font-frankfurter text-xs text-white mb-4">
+                  Tatio totas dolorectae. Nempos ant rectatemos sim eaquunt
+                  eossit, nossinus moluptas simporehent{" "}
+                </p>
+
+                <div className="flex items-center justify-end w-full">
+                  <h3 className="font-cooper text-base text-white uppercase underline">
+                    VOIR PLUS
+                  </h3>
+                  <Icon
+                    icon="uis:arrow-down-right"
+                    className="text-2xl text-white"
+                  />
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        <button className="font-zipper font-medium text-2xl flex items-center justify-center h-10 px-4 pt-2 mx-auto mt-10 cursor-pointer bg-white rounded-full">
+          Voir tous les produits
+        </button>
+      </div>
+      <img
+        src="/assets/images/merchs.png"
+        className="w-50 md:w-70 absolute -top-[5%] right-[5%]"
+      />
+    </div>
+  );
+};
 
 const Gallery = () => {
   return (
@@ -128,7 +198,10 @@ const Gallery = () => {
       {/* Mobile Layout */}
       <div className="block md:hidden w-full relative">
         <div className="space-y-4">
-          <img src="/assets/images/gallery-1.png" className="w-full h-auto rounded-lg" />
+          <img
+            src="/assets/images/gallery-1.png"
+            className="w-full h-auto rounded-lg"
+          />
           <div className="grid grid-cols-2 gap-2">
             <img
               src="/assets/images/gallery-2.png"
