@@ -9,6 +9,7 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
+    "@iconify/react": "^6.0.2",
     "@react-router/node": "7.10.1",
     "@react-router/serve": "7.10.1",
     "classnames": "^2.5.1",

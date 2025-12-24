@@ -7,6 +7,7 @@ import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import Input from "~/components/Input";
+import { Icon } from "@iconify/react";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -80,9 +81,131 @@ export default function Home() {
       <Quality />
 
       <Truk />
+
+      <NotrePlaylist />
     </div>
   );
 }
+
+const NotrePlaylist = () => {
+  return (
+    <div className="container mx-auto py-12 h-screen md:h-auto md:py-32.5 relative">
+      <h1 className="text-center text-primary uppercase font-zipper text-[70px] md:text-[100px] mb-20 md:mb-9">
+        notre <br className="block md:hidden" /> playlist
+      </h1>
+
+      <div className="z-50 relative rounded-2xl max-w-137.5 w-full mx-auto">
+        <div className="bg-[#b9120a] rounded-tl-2xl rounded-tr-2xl p-6 relative">
+          <div className="flex items-center gap-4">
+            <img
+              src="/assets/images/album.png"
+              className="w-30 h-30 rounded-2xl"
+            />
+            <div className="">
+              <h3 className="font-frankfurter text-xl text-white">Kebs Baba</h3>
+              <h3 className="text-sm text-white/70 mb-2.5">111737373737122</h3>
+
+              <div className="flex items-center gap-3 cursor-pointer select-none mb-4">
+                <Icon
+                  icon="simple-line-icons:plus"
+                  className="w-6 h-6 text-white"
+                />
+
+                <span className="text-sm text-white">Save on Spotify</span>
+              </div>
+
+              <div className="flex items-center">
+                <div className="flex items-center gap-2 mr-4">
+                  <Icon
+                    icon="fluent:previous-32-filled"
+                    className="w-5 h-5 text-white"
+                  />
+                  <div className="bg-[#761107] w-50 h-1.5 rounded-full"></div>
+                  <Icon
+                    icon="fluent:next-32-filled"
+                    className="w-5 h-5 text-white"
+                  />
+                </div>
+
+                <span className="text-sm text-white">00:00</span>
+              </div>
+            </div>
+          </div>
+
+          <Icon
+            icon="oi:play-circle"
+            className="w-10 h-10 text-white absolute bottom-5 right-5"
+          />
+          <Icon
+            icon="mdi:spotify"
+            className="w-7 h-7 text-white absolute top-4 right-4"
+          />
+        </div>
+
+        <div className="bg-[#991008] rounded-br-2xl rounded-bl-2xl w-full">
+          <div className="flex items-center justify-between w-full p-5">
+            <div className="flex items-center gap-4">
+              <span className="text-base font-frankfurter text-white/70">
+                1
+              </span>
+              <div className="flex flex-col items-start">
+                <span className="text-white text-base font-frankfurter">
+                  Çöpçüler
+                </span>
+                <span className="text-xs text-white/70">Erkin Koray</span>
+              </div>
+            </div>
+
+            <span className="text-sm text-white">03:32</span>
+          </div>
+
+          <div className="flex items-center justify-between w-full p-5">
+            <div className="flex items-center gap-4">
+              <span className="text-base font-frankfurter text-white/70">
+                1
+              </span>
+              <div className="flex flex-col items-start">
+                <span className="text-white text-base font-frankfurter">
+                  Namus Belası
+                </span>
+                <span className="text-xs text-white/70">Cem Karaca</span>
+              </div>
+            </div>
+
+            <span className="text-sm text-white">04:32</span>
+          </div>
+        </div>
+      </div>
+
+      <AnimatedLabel className="absolute bottom-[50%] -right-[14%] md:bottom-[5%] md:right-[10%]">
+        <img
+          src="/assets/images/play-baba.png"
+          className="w-62.5"
+        />
+      </AnimatedLabel>
+      <AnimatedLabel className="absolute bottom-0 md:top-[15%] -left-[10%] md:left-[2.5%]">
+        <img src="/assets/images/listen-baba.png" className="w-62.5" />
+      </AnimatedLabel>
+
+      <img
+        src="/assets/images/magic-1.png"
+        className="w-34 absolute top-[5%] -left-[5%] md:top-[5%] md:left-[20%]"
+      />
+      <img
+        src="/assets/images/magic-2.png"
+        className="w-28.5 md:w-42.5 absolute right-[30%] bottom-[15%] md:bottom-0 md:left-[5%]"
+      />
+      <img
+        src="/assets/images/magic-4.png"
+        className="w-14.5 absolute top-[1%] right-[1%] md:top-[3%] md:right-[22%]"
+      />
+      <img
+        src="/assets/images/magic-3.png"
+        className="w-18 md:w-21.75 absolute bottom-[15%] right-[10%] md:top-[10%] md:right-[25%]"
+      />
+    </div>
+  );
+};
 
 const Truk = () => {
   const trukImages = [
