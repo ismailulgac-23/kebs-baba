@@ -1,14 +1,15 @@
 import React from "react";
-
+import cn from "classnames";
 interface IInput {
   inputType?: "input" | "textarea";
   label?: string;
   rows?: number;
+  className?: string;
 }
 
-const Input = ({ inputType = "input", label, rows }: IInput) => {
+const Input = ({ className, inputType = "input", label, rows }: IInput) => {
   return (
-    <div className="w-full">
+    <div className={cn("w-full", className)}>
       {inputType == "textarea" && (
         <label className="text-white font-frankfurter text-base">{label}</label>
       )}

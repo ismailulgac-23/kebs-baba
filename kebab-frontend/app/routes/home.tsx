@@ -83,9 +83,57 @@ export default function Home() {
       <Truk />
 
       <NotrePlaylist />
+
+      <Contact />
     </div>
   );
 }
+
+const Contact = () => {
+  return (
+    <div className="max-w-full md:container mx-auto h-188.5 flex items-center justify-center mb-[100px]">
+      <div className="w-full md:w-[50%] h-full bg-primary py-12 px-5 md:px-16">
+        <h1 className="uppercase font-zipper text-center md:text-left text-[72px] md:text-[120px] text-white mb-[38px]">
+          Contactez-nous
+        </h1>
+
+        <div className="grid grid-cols-2 w-full gap-2 mb-3">
+          <Input label="Nom et prénom" />
+          <Input label="Email" />
+        </div>
+        <Input label="Raison" className="mb-3" />
+        <Input label="Message" inputType="textarea" className="mb-4" rows={8} />
+
+        <button className="font-zipper font-medium text-2xl flex items-center justify-center h-10 px-4 pt-2 ml-auto cursor-pointer bg-white rounded-full">
+          Envoyer
+        </button>
+
+        <div className="grid grid-cols-2 w-full max-w-113 mx-auto mt-14 md:mt-0">
+          <div className="flex flex-col items-center">
+            <div className="w-full mb-1">
+              <img src="/assets/images/telephone.png" className="w-32" />
+            </div>
+            <h3 className="font-zipper font-medium text-white text-[38px]">
+              07 88 62 42 14
+            </h3>
+          </div>
+
+          <div className="flex flex-col items-center">
+            <div className="w-full mb-1">
+              <img src="/assets/images/instagram.png" className="w-32" />
+            </div>
+            <h3 className="underline font-zipper font-medium text-white text-[38px]">
+              kebsbaba.fr
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div className="w-[50%] h-full hidden md:block">
+        <img src="/assets/images/breakdancer.png" className="w-full h-full" />
+      </div>
+    </div>
+  );
+};
 
 const NotrePlaylist = () => {
   return (
@@ -178,10 +226,7 @@ const NotrePlaylist = () => {
       </div>
 
       <AnimatedLabel className="absolute bottom-[50%] -right-[14%] md:bottom-[5%] md:right-[10%]">
-        <img
-          src="/assets/images/play-baba.png"
-          className="w-62.5"
-        />
+        <img src="/assets/images/play-baba.png" className="w-62.5" />
       </AnimatedLabel>
       <AnimatedLabel className="absolute bottom-0 md:top-[15%] -left-[10%] md:left-[2.5%]">
         <img src="/assets/images/listen-baba.png" className="w-62.5" />
