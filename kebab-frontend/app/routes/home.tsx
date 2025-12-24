@@ -97,7 +97,168 @@ export default function Home() {
 }
 
 const Footer = () => {
-  return <div></div>;
+  return (
+    <div className="border-[3px] border-primary rounded-tl-[45px] md:rounded-tl-[87px] rounded-tr-[45px] md:rounded-tr-[87px] w-full relative">
+      {/* Desktop Layout */}
+      <div className="hidden md:block px-[50px] pt-[50px] pb-5">
+        <h1 className="font-cooper text-[85px] text-primary mb-14.25">
+          Salade tomate jamais malade
+        </h1>
+
+        <div className="flex items-start gap-25 mb-20">
+          <FooterLinkGroup
+            title="CONTACT"
+            contents={[
+              { title: "kebsbaba.fr" },
+              { title: "contact@kebsbaba.fr" },
+            ]}
+          />
+          <FooterLinkGroup
+            title="Infos pratiques"
+            contents={[
+              {
+                title:
+                  "KEBS BABA CENTRE,<br /> 26 rue du Vieux Marché aux Vins, 67000 STRASBOURG",
+              },
+              {
+                title:
+                  "Ouvert tous les jours de 11h45 à 22h00 et<br/> de 12h00 à 22h00 le dimanche",
+              },
+            ]}
+          />
+
+          <FooterLinkGroup
+            title="&nbsp;"
+            contents={[
+              {
+                title: "KEBS BABA KRUT,<br />14 rue Munch, 67000 STRASBOURG",
+              },
+              {
+                title:
+                  "Ouvert tous les jours de 11h45 à 23h00 et<br/> de 11h45 à 01h00 le vendredi et samedi",
+              },
+            ]}
+          />
+        </div>
+
+        <div className="flex items-center gap-7">
+          <h3 className="text-sm font-frankfurter text-primary">
+            CGV & Mentions légales
+          </h3>
+          <h3 className="text-sm font-frankfurter text-primary">
+            2026 Kebs Baba — Tous droits réservés{" "}
+          </h3>
+        </div>
+
+        <img
+          src="/assets/images/footer-baba.png"
+          className="w-[210px] absolute bottom-[10%] right-[3%]"
+        />
+      </div>
+
+      {/* Mobile Layout */}
+      <div className="block md:hidden px-6 pt-8 pb-5 relative">
+        <h1 className="font-cooper text-[32px] text-primary leading-tight max-w-[300px] mb-12">
+          Salade tomate jamais malade
+        </h1>
+
+        <div className="space-y-8">
+          {/* Contact Section */}
+          <div>
+            <h2 className="font-cooper text-primary text-xl mb-4 uppercase">
+              CONTACT
+            </h2>
+            <div className="space-y-2">
+              <p className="text-primary font-frankfurter text-sm">
+                Numéro de tel
+              </p>
+              <p className="text-primary font-frankfurter text-sm">
+                kebsbaba.fr
+              </p>
+              <p className="text-primary font-frankfurter text-sm">
+                contact@kebsbaba.fr
+              </p>
+            </div>
+          </div>
+
+          {/* Infos Pratiques Section */}
+          <div>
+            <h2 className="font-cooper text-primary text-xl mb-4 uppercase">
+              INFOS PRATIQUES
+            </h2>
+            <div className="grid grid-cols-1 gap-6">
+              <div>
+                <h3 className="text-primary font-frankfurter font-bold text-sm mb-2">
+                  KEBS BABA CENTRE,
+                </h3>
+                <p className="text-primary font-frankfurter text-sm mb-2">
+                  26 rue du Vieux Marché aux Vins,
+                </p>
+                <p className="text-primary font-frankfurter text-sm mb-3">
+                  67000 STRASBOURG
+                </p>
+                <p className="text-primary font-frankfurter text-sm">
+                  Ouvert tous les jours de 11h45 à 22h00 et de 12h00 à 22h00 le
+                  dimanche
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-primary font-frankfurter font-bold text-sm mb-2">
+                  KEBS BABA KRUT,
+                </h3>
+                <p className="text-primary font-frankfurter text-sm mb-2">
+                  14 rue Munch,
+                </p>
+                <p className="text-primary font-frankfurter text-sm mb-3">
+                  67000 STRASBOURG
+                </p>
+                <p className="text-primary font-frankfurter text-sm">
+                  Ouvert tous les jours de 11h45 à 23h00 et de 11h45 à 01h00 le
+                  vendredi et samedi
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center gap-2 mt-8 pt-4 border-t border-primary/20">
+          <h3 className="text-xs font-frankfurter text-primary text-center">
+            CGV & Mentions légales
+          </h3>
+          <h3 className="text-xs font-frankfurter text-primary text-center">
+            ©2025 Kebs Baba — Tous droits réservés
+          </h3>
+        </div>
+
+        <img
+          src="/assets/images/footer-baba.png"
+          className="w-[100px] absolute top-5 right-5"
+        />
+      </div>
+    </div>
+  );
+};
+
+const FooterLinkGroup = ({ title, contents }: any) => {
+  return (
+    <div>
+      <h1 className="text-[32px] mb-3 font-medium font-zipper text-primary">
+        {title}
+      </h1>
+      <ul className="space-y-2.5">
+        {contents.map((item: any, index: number) => {
+          return (
+            <li
+              key={index}
+              className="font-frankfurter text-lg text-primary"
+              dangerouslySetInnerHTML={{ __html: item.title }}
+            ></li>
+          );
+        })}
+      </ul>
+    </div>
+  );
 };
 
 const Products = () => {
