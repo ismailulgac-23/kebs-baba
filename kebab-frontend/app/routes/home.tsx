@@ -85,15 +85,87 @@ export default function Home() {
       <NotrePlaylist />
 
       <Contact />
+
+      <Gallery />
     </div>
   );
 }
 
+const Gallery = () => {
+  return (
+    <div className="container mx-auto py-17 md:py-38.75">
+      {/* Desktop Layout */}
+      <div className="hidden md:block w-full">
+        <div className="w-full grid grid-cols-2 gap-5 h-170 relative">
+          <img src="/assets/images/gallery-1.png" className="w-full h-full" />
+          <div className="grid grid-cols-2 gap-2 h-full">
+            <img
+              src="/assets/images/gallery-2.png"
+              className="w-full h-full object-cover aspect-square"
+            />
+            <img
+              src="/assets/images/gallery-3.png"
+              className="w-full h-full object-cover aspect-square"
+            />
+            <img
+              src="/assets/images/gallery-4.png"
+              className="w-full h-full object-cover aspect-square"
+            />
+            <img
+              src="/assets/images/gallery-5.png"
+              className="w-full h-full object-cover aspect-square"
+            />
+          </div>
+
+          <img
+            src="/assets/images/galerie.png"
+            className="absolute -top-[7%] -left-[7%] w-70"
+            alt=""
+          />
+        </div>
+      </div>
+
+      {/* Mobile Layout */}
+      <div className="block md:hidden w-full relative">
+        <div className="space-y-4">
+          <img src="/assets/images/gallery-1.png" className="w-full h-auto rounded-lg" />
+          <div className="grid grid-cols-2 gap-2">
+            <img
+              src="/assets/images/gallery-2.png"
+              className="w-full h-[197px] object-cover rounded-lg"
+            />
+            <img
+              src="/assets/images/gallery-3.png"
+              className="w-full h-[197px] object-cover rounded-lg"
+            />
+          </div>
+          <div className="grid grid-cols-2 gap-2">
+            <img
+              src="/assets/images/gallery-4.png"
+              className="w-full h-[197px] object-cover rounded-lg"
+            />
+            <img
+              src="/assets/images/gallery-5.png"
+              className="w-full h-[197px] object-cover rounded-lg"
+            />
+          </div>
+        </div>
+
+        <img
+          src="/assets/images/galerie.png"
+          className="absolute -top-[5%] -left-[5%] w-40"
+          alt=""
+        />
+      </div>
+    </div>
+  );
+};
+
 const Contact = () => {
   return (
-    <div className="max-w-full md:container mx-auto h-188.5 flex items-center justify-center mb-[100px]">
+    <div className="max-w-full md:container mx-auto h-188.5 flex items-center justify-center">
       <div className="w-full md:w-[50%] h-full bg-primary py-12 px-5 md:px-16">
-        <h1 className="uppercase font-zipper text-center md:text-left text-[72px] md:text-[120px] text-white mb-[38px]">
+        <h1 className="uppercase font-zipper text-center md:text-left text-[72px] md:text-[120px] text-white mb-9.5">
           Contactez-nous
         </h1>
 
