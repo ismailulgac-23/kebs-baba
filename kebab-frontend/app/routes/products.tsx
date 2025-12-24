@@ -49,7 +49,11 @@ const ProductList = () => {
       <div className="grid grid-cols-3 gap-10 w-full py-10">
         {Array.from(Array(12).keys()).map((a: any, i: any) => {
           return (
-            <div key={i} className="border-2 border-primary rounded-3xl">
+            <Link
+              to={"/products/" + i}
+              key={i}
+              className="border-2 border-primary rounded-3xl"
+            >
               <img
                 src="/assets/images/t-shirt.png"
                 className="rounded-tl-3xl rounded-tr-3xl"
@@ -69,7 +73,7 @@ const ProductList = () => {
                   Ajouter au panier
                 </button>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

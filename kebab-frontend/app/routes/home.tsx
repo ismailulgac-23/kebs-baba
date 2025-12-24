@@ -267,7 +267,7 @@ const FooterLinkGroup = ({ title, contents }: any) => {
   );
 };
 
-const Products = () => {
+export const Products = () => {
   return (
     <div className="w-full bg-primary relative py-15 mb-28.25">
       <div className="container mx-auto">
@@ -287,7 +287,7 @@ const Products = () => {
         >
           {Array.from(Array(12).keys()).map((index) => (
             <SwiperSlide key={index}>
-              <div className="w-full cursor-pointer select-none">
+              <Link to={`/products/${index}`} className="w-full cursor-pointer select-none">
                 <img
                   src="/assets/images/t-shirt.png"
                   className="w-full aspect-square rounded-2xl mb-1.5 object-cover"
@@ -311,7 +311,7 @@ const Products = () => {
                     className="text-2xl text-white"
                   />
                 </div>
-              </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -404,7 +404,7 @@ const Gallery = () => {
   );
 };
 
-const Contact = () => {
+export const Contact = () => {
   return (
     <div className="max-w-full md:container mx-auto h-188.5 flex items-center justify-center">
       <div className="w-full md:w-[50%] h-full bg-primary py-12 px-5 md:px-16">
@@ -450,7 +450,7 @@ const Contact = () => {
   );
 };
 
-const NotrePlaylist = () => {
+export const NotrePlaylist = () => {
   return (
     <div className="container mx-auto py-12 h-screen md:h-auto md:py-32.5 relative">
       <h1 className="text-center text-primary uppercase font-zipper text-[70px] md:text-[100px] mb-20 md:mb-9">
