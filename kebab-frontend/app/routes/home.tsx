@@ -12,8 +12,8 @@ import { Icon } from "@iconify/react";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Kebab Frontend" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Kebs Baba | Home" },
+    { name: "description", content: "Kebs Baba | Home" },
   ];
 }
 
@@ -21,30 +21,7 @@ export default function Home() {
   return (
     <div className="">
       {/* topbar */}
-      <div className="container mx-auto h-[63px] flex justify-between items-center">
-        <div className="hidden md:flex flex-col items-start">
-          <p className="text-primary text-sm font-normal font-cooper">
-            BABA CENTRE, 26 rue du vieux marché aux vins{" "}
-          </p>
-          <p className="text-primary text-sm font-normal font-cooper">
-            BABA KRUT, 14 rue Munch Krutenau
-          </p>
-        </div>
-
-        <InstagramButton className="block md:hidden w-[90px]" />
-
-        <Link to="/">
-          <img
-            className="md:w-[141px] md:h-[49px] w-[97px] select-none"
-            src="/assets/images/logo.png"
-            alt="logo"
-          />
-        </Link>
-        <div className="flex items-center gap-[17px]">
-          <MerchsButton className="md:w-[107px] md:h-[34px] w-[90px]" />
-          <InstagramButton className="hidden md:block w-[107px] h-[34px]" />
-        </div>
-      </div>
+      <Topbar />
 
       {/* marquee */}
       <Marquee />
@@ -96,7 +73,36 @@ export default function Home() {
   );
 }
 
-const Footer = () => {
+export const Topbar = () => {
+  return (
+    <div className="container mx-auto h-[63px] flex justify-between items-center">
+      <div className="hidden md:flex flex-col items-start">
+        <p className="text-primary text-sm font-normal font-cooper">
+          BABA CENTRE, 26 rue du vieux marché aux vins{" "}
+        </p>
+        <p className="text-primary text-sm font-normal font-cooper">
+          BABA KRUT, 14 rue Munch Krutenau
+        </p>
+      </div>
+
+      <InstagramButton className="block md:hidden w-[90px]" />
+
+      <Link to="/">
+        <img
+          className="md:w-[141px] md:h-[49px] w-[97px] select-none"
+          src="/assets/images/logo.png"
+          alt="logo"
+        />
+      </Link>
+      <div className="flex items-center gap-[17px]">
+        <MerchsButton className="md:w-[107px] md:h-[34px] w-[90px]" />
+        <InstagramButton className="hidden md:block w-[107px] h-[34px]" />
+      </div>
+    </div>
+  );
+};
+
+export const Footer = () => {
   return (
     <div className="border-[3px] border-primary rounded-tl-[45px] md:rounded-tl-[87px] rounded-tr-[45px] md:rounded-tr-[87px] w-full relative">
       {/* Desktop Layout */}
@@ -310,9 +316,12 @@ const Products = () => {
           ))}
         </Swiper>
 
-        <button className="font-zipper font-medium text-2xl flex items-center justify-center h-10 px-4 pt-2 mx-auto mt-10 cursor-pointer bg-white rounded-full">
+        <Link
+          to="/products"
+          className="w-max font-zipper font-medium text-2xl flex items-center justify-center h-10 px-4 pt-2 mx-auto mt-10 cursor-pointer bg-white rounded-full"
+        >
           Voir tous les produits
-        </button>
+        </Link>
       </div>
       <img
         src="/assets/images/merchs.png"
@@ -1177,7 +1186,7 @@ const MerchsButton = ({ className }: { className?: string }) => {
   );
 };
 
-const Marquee = ({
+export const Marquee = ({
   text = "ÉVÈNEMENTS DISCO KEBAB de 21h à 3h30 à Kebs BABA Krutenau le vendredi 3 octobre 2025",
   textColor = "text-white",
   bgColor = "bg-primary",
