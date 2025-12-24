@@ -23,7 +23,7 @@ const ProductDetail = () => {
       <Marquee />
 
       <div className="container mx-auto py-4">
-        <Head />
+        <Head>Revenir aux merchs</Head>
 
         <ProductCard />
       </div>
@@ -250,7 +250,7 @@ const Carousel = () => {
   );
 };
 
-const Head = () => {
+export const Head = ({ children }: any) => {
   const navigate = useNavigate();
   return (
     <div
@@ -258,9 +258,7 @@ const Head = () => {
       className="cursor-pointer select-none flex items-center gap-4 w-full"
     >
       <Icon icon="ri:arrow-left-line" className="w-6 h-6 text-primary" />
-      <h3 className="text-lg font-frankfurter text-primary">
-        Revenir aux merchs
-      </h3>
+      <h3 className="text-lg font-frankfurter text-primary">{children}</h3>
     </div>
   );
 };
